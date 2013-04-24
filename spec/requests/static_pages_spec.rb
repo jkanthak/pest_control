@@ -5,9 +5,9 @@ describe "StaticPages" do
   subject { page }
   
   describe "Home page" do   
-    before { visit home_path }  
+    before { visit root_path }  
     
-    it { should have_selector('title', text: 'Home') }    
+    it { should have_selector('title', text: 'Pest Control') }    
     it { should have_selector('h1', text: 'Pest Control') }
   end
   
@@ -33,7 +33,7 @@ describe "StaticPages" do
   end
   
   it "should have the right links on the layout" do
-    visit home_path
+    visit root_path
     #click_link "Sign in"
     #page.should have_selector 'title', text: 'Sign in'
     click_link "About"

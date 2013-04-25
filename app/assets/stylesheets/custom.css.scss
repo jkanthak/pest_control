@@ -2,6 +2,20 @@
 
 /* mixins, variables, etc. */
 
+
+.btn-primary {
+  background-color: #3B3;
+  background-image: -webkit-linear-gradient(top, #191, #1B1);
+  border-color: #090 #090 #090;
+}
+
+.btn-primary:hover {
+  background-color: #3B3;
+  background-image: -webkit-linear-gradient(top, #191, #1B1);
+  border-color: #090 #090 #090;
+}
+
+
 $grayMediumLight: #eaeaea;
 
 @mixin box_sizing {

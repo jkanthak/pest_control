@@ -2,7 +2,10 @@
 
 <h1>'HUD Maps' bugs</h1>
 
-<%= link_to 'Report a bug', new_bug_path %>
+<form method="get" action="/reportbug">
+    <button type="submit" class="btn btn-primary">Report a bug</button>
+</form>
+
 <table>
   <tr>
     <th>Title</th>
@@ -18,13 +21,10 @@
     <td><%= bug.title %></td>
     <td><%= bug.status %></td>
     <td><%= bug.priority %></td>
-    <td><%= link_to 'Show', bug %></td>
+    <td><%= link_to 'View', bug %></td>
     <td><%= link_to 'Edit', edit_bug_path(bug) %></td>
-    <td><%= link_to 'Destroy', bug, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Delete', bug, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'Report a bug', new_bug_path %>

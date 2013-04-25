@@ -5,22 +5,21 @@ describe Bug do
   before do
     @user = User.new(name: "Example User", email: "user@example.com",
                     password: "foobar", password_confirmation: "foobar")
-    @bug = Bug.new(user: user, title: "This bug", 
-                   description: "Description here", status: "Open", 
-                   priority: "medium", closed_by: "", 
+    @bug = Bug.new(title: "This bug", description: "Description here",
+                   status: "Open", priority: "medium", 
+                   reported_by: 1, closed_by: "", 
                    comment: "Comment here.")
   end
 
   subject { @bug }
 
-  it { should respond_to(:user) }
-  it { should respond_to(:user_id) }  
-  it { should respond_to(:user) }
+
   it { should respond_to(:title) }
   it { should respond_to(:description) }  
   it { should respond_to(:status) }
   it { should respond_to(:priority) }  
   it { should respond_to(:closed_by) }
+  it { should respond_to(:reported_by) }  
   it { should respond_to(:comment) }  
 
   it { should be_valid }  

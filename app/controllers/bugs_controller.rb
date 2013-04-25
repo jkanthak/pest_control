@@ -1,6 +1,5 @@
 class BugsController < ApplicationController
-  # GET /bugs
-  # GET /bugs.json
+
   def index
     @bugs = Bug.all
 
@@ -10,8 +9,6 @@ class BugsController < ApplicationController
     end
   end
 
-  # GET /bugs/1
-  # GET /bugs/1.json
   def show
     @bug = Bug.find(params[:id])
 
@@ -21,8 +18,6 @@ class BugsController < ApplicationController
     end
   end
 
-  # GET /bugs/new
-  # GET /bugs/new.json
   def new
     @bug = Bug.new
 
@@ -32,32 +27,26 @@ class BugsController < ApplicationController
     end
   end
 
-  # GET /bugs/1/edit
   def edit
     @bug = Bug.find(params[:id])
   end
 
-  # POST /bugs
-  # POST /bugs.json
   def create
     @bug = Bug.new(params[:bug])
+    @bug.reported_by = current_user.id
 
-    respond_to do |format|
-      if @bug.save
-        format.html { redirect_to @bug, notice: 'Bug was successfully created.' }
-        format.json { render json: @bug, status: :created, location: @bug }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @bug.errors, status: :unprocessable_entity }
-      end
+    if @bug.save
+      flash[:success] = "Bug reported."
+      redirect_to root_path
+    else
+      render 'new'
     end
   end
-
-  # PUT /bugs/1
-  # PUT /bugs/1.json
+  
   def update
     @bug = Bug.find(params[:id])
-
+   flash[:success] = "Bug updated."
+   
     respond_to do |format|
       if @bug.update_attributes(params[:bug])
         format.html { redirect_to @bug, notice: 'Bug was successfully updated.' }
@@ -69,11 +58,10 @@ class BugsController < ApplicationController
     end
   end
 
-  # DELETE /bugs/1
-  # DELETE /bugs/1.json
   def destroy
     @bug = Bug.find(params[:id])
     @bug.destroy
+    flash[:success] = "Bug deleted."
 
     respond_to do |format|
       format.html { redirect_to bugs_url }

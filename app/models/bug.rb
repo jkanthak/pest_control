@@ -1,8 +1,6 @@
 class Bug < ActiveRecord::Base
-   attr_accessible :closed_by, :comment, :description, :priority, :status, :title
-   belongs_to :user
+   attr_accessible :title, :description, :status, :priority, :reported_by, :closed_by, :comment
    
-   validates :user,  presence: true
    validates :title,  presence: true
    validates :status,  presence: true
    

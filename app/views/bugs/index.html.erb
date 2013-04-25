@@ -1,0 +1,30 @@
+<%= provide(:title, 'Reported bugs') %>
+
+<h1>'HUD Maps' bugs</h1>
+
+<%= link_to 'Report a bug', new_bug_path %>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Status</th>
+    <th>Priority</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @bugs.each do |bug| %>
+  <tr>
+    <td><%= bug.title %></td>
+    <td><%= bug.status %></td>
+    <td><%= bug.priority %></td>
+    <td><%= link_to 'Show', bug %></td>
+    <td><%= link_to 'Edit', edit_bug_path(bug) %></td>
+    <td><%= link_to 'Destroy', bug, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Report a bug', new_bug_path %>

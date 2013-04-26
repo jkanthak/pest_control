@@ -90,10 +90,7 @@ p {
   padding-top: 9px;
   font-weight: bold;
   line-height: 1;
-  &:hover {
-    color: white;
-    text-decoration: none;
-  }
+  cursor: auto;
 }
 
 .bug-logo {
@@ -113,6 +110,7 @@ footer {
     color: $gray;
     &:hover { 
       color: $grayDarker;
+      background-color: white;
     }
   }  
   small { 
@@ -206,6 +204,16 @@ input, textarea, select, .uneditable-input {
   @include box_sizing;  
 }
 
+textarea {
+  height: 100px;
+}
+
+.bug_form {
+  label {
+    margin-bottom: -12px;
+  }
+}
+
 #error_explanation {
   color: #f00;
   ul {
@@ -234,4 +242,24 @@ input, textarea, select, .uneditable-input {
   }
 }
 
+/* bug index */
+
+.bug_table {
+  border-spacing: 30px;  
+  border: 8px solid white;
+  td {
+    padding-left: 15px;    
+  }
+  th { 
+    text-align: left;
+    padding-left: 15px;
+  }
+  a {
+    color: blue;
+    &:hover {
+      background-color: white;
+      color: blue;
+    }
+  }
+}
 

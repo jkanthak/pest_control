@@ -6,11 +6,13 @@
     <button type="submit" class="btn btn-primary">Report a bug</button>
 </form>
 
-<table>
+<table class="bug_table sortable">
   <tr>
     <th>Title</th>
     <th>Status</th>
     <th>Priority</th>
+    <th>Created at</th>  
+    <th>Reported by</th>       
     <th></th>
     <th></th>
     <th></th>
@@ -21,6 +23,8 @@
     <td><%= bug.title %></td>
     <td><%= bug.status %></td>
     <td><%= bug.priority %></td>
+    <td><%= bug.created_at %></td>  
+    <td><%= creator_name(bug.reported_by) %></td>   
     <td><%= link_to 'View', bug %></td>
     <td><%= link_to 'Edit', edit_bug_path(bug) %></td>
     <td><%= link_to 'Delete', bug, method: :delete, data: { confirm: 'Are you sure?' } %></td>

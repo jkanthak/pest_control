@@ -45,7 +45,7 @@ class BugsController < ApplicationController
   
   def update
     @bug = Bug.find(params[:id])
-   flash[:success] = "Bug updated."
+    flash[:success] = "Bug updated."
    
     respond_to do |format|
       if @bug.update_attributes(params[:bug])

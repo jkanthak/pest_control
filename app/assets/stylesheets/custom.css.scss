@@ -25,7 +25,7 @@ $grayMediumLight: #eaeaea;
 }
 
 
-/* universal */
+/* universal ---------------------- */
 
 html {
   overflow-y: scroll;
@@ -50,7 +50,7 @@ textarea {
   }
 }
 
-/* typography */
+/* typography ----------------------*/
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
@@ -78,7 +78,7 @@ p {
 }
 
 
-/* header */
+/* header----------------------*/
 
 #logo {
   float: left;
@@ -99,7 +99,7 @@ p {
   float: left;
 }
 
-/* footer */
+/* footer ----------------------*/
 
 footer {
   margin-top: 45px;
@@ -126,7 +126,7 @@ footer {
   }
 }
 
-/* miscellaneous */
+/* miscellaneous ----------------------*/
 
 .debug_dump {
   clear: both;
@@ -136,7 +136,7 @@ footer {
   @include box_sizing;
 }
 
-/* sidebar */
+/* sidebar ----------------------*/
 
 aside {
   section {
@@ -194,7 +194,7 @@ aside {
   }
 }
 
-/* forms */
+/* forms ---------------------- */
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
@@ -227,7 +227,38 @@ textarea {
   @extend .error;
 }
 
-/* users index */
+.search_form {
+  width: 80%;
+  background-color: #fff;
+
+  padding: 10px 0 0 10px;
+}
+
+.search_field {
+  label { 
+    font-size: .9em;
+    font-weight: bold; 
+    float: left;
+    margin-right: 10px;
+  }
+  input { 
+    height: 24px;
+    width: 110px; 
+    float: left;
+    margin-right: 10px;    
+  }
+}
+
+.search_btn {
+  input {
+    font-size: .9em;
+    height: 24px;
+    width: 65px;
+  }
+}
+
+
+/* users index ----------------------*/
 
 .users {
   list-style: none;
@@ -242,7 +273,7 @@ textarea {
   }
 }
 
-/* bug index */
+/* bug index ----------------------*/
 
 .bug_table {
   border-spacing: 30px;  

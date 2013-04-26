@@ -1,7 +1,8 @@
 class BugsController < ApplicationController
 
   def index
-    @bugs = Bug.all
+    @search = Bug.search(params[:q])
+    @bugs = @search.result
 
     respond_to do |format|
       format.html # index.html.erb
@@ -45,16 +46,12 @@ class BugsController < ApplicationController
   
   def update
     @bug = Bug.find(params[:id])
-    flash[:success] = "Bug updated."
-   
-    respond_to do |format|
-      if @bug.update_attributes(params[:bug])
-        format.html { redirect_to @bug, notice: 'Bug was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @bug.errors, status: :unprocessable_entity }
-      end
+
+    if @bug.update_attributes(params[:bug])
+       flash[:success] = "Bug updated."
+       redirect_to root_path
+    else
+       render 'new'
     end
   end
 

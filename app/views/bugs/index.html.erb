@@ -6,13 +6,31 @@
     <button type="submit" class="btn btn-primary">Report a bug</button>
 </form>
 
-<table class="bug_table sortable">
+<%= search_form_for @search do |f| %>
+	<div class="search_form">
+		<div class="search_field">
+			<%= f.label :title_cont, "Title contains:" %>
+			<%= f.text_field :title_cont %>
+		</div>
+		<div class="search_field">
+			<%= f.label :status_cont, "Status:" %>
+			<%= f.text_field :status_cont %>
+		</div>
+		<div class="search_field">
+			<%= f.label :description_cont, "Description contains:" %>
+			<%= f.text_field :description_cont %>
+		</div>				
+		<div class="search_btn"><%= f.submit "Search" %></div>
+	</div>
+<% end %>
+
+<table class="bug_table">
   <tr>
-    <th>Title</th>
-    <th>Status</th>
-    <th>Priority</th>
-    <th>Created at</th>  
-    <th>Reported by</th>       
+    <th><%= sort_link @search, :title, "Title" %></th>
+    <th><%= sort_link @search, :status, "Status" %></th>
+    <th><%= sort_link @search, :priority, "Priority" %></th>
+    <th><%= sort_link @search, :created_at, "Created at" %></th>
+    <th><%= sort_link @search, :reported_by, "Reported by" %></th>                  
     <th></th>
     <th></th>
     <th></th>
@@ -20,10 +38,10 @@
 
 <% @bugs.each do |bug| %>
   <tr>
-    <td><%= bug.title %></td>
+    <td><%= truncate(bug.title, length: 30) %></td>
     <td><%= bug.status %></td>
     <td><%= bug.priority %></td>
-    <td><%= bug.created_at %></td>  
+    <td><%= bug.created_at.to_formatted_s(:short) %></td>  
     <td><%= creator_name(bug.reported_by) %></td>   
     <td><%= link_to 'View', bug %></td>
     <td><%= link_to 'Edit', edit_bug_path(bug) %></td>

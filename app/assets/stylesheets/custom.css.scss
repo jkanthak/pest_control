@@ -228,7 +228,7 @@ textarea {
 }
 
 .search_form {
-  width: 80%;
+  width: 85%;
   background-color: #fff;
 
   padding: 10px 0 0 10px;
@@ -294,3 +294,15 @@ textarea {
   }
 }
 
+.screenshot {
+  float: right
+}
+
+.urgent-red {
+  color: #A00;
+}
+
+/* bug show ----------------------*/
+.bug-show {
+  margin-left: 20px;
+}

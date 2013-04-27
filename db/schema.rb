@@ -11,18 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130425171711) do
+ActiveRecord::Schema.define(:version => 20130427123939) do
 
   create_table "bugs", :force => true do |t|
     t.string   "title"
     t.text     "description"
     t.string   "status"
-    t.string   "priority"
+    t.integer  "priority"
     t.string   "closed_by"
     t.text     "comment"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
     t.integer  "reported_by"
+    t.string   "screenshot_file_name"
+    t.string   "screenshot_content_type"
+    t.integer  "screenshot_file_size"
+    t.datetime "screenshot_updated_at"
   end
 
   create_table "users", :force => true do |t|
@@ -32,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20130425171711) do
     t.datetime "updated_at",      :null => false
     t.string   "password_digest"
     t.string   "remember_token"
+    t.boolean  "admin"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

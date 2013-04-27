@@ -20,7 +20,10 @@
 			<%= f.label :description_cont, "Description contains:" %>
 			<%= f.text_field :description_cont %>
 		</div>				
-		<div class="search_btn"><%= f.submit "Search" %></div>
+		<div class="search_btn">
+			<%= f.submit "Search" %>
+			<%= f.submit "Show all" %>
+		</div>
 	</div>
 <% end %>
 
@@ -40,7 +43,9 @@
   <tr>
     <td><%= truncate(bug.title, length: 30) %></td>
     <td><%= bug.status %></td>
-    <td><%= bug.priority %></td>
+    <td <% if bug.priority == 0 %> class="urgent-red" <% end %> >
+    	<%= priority_to_str(bug.priority) %>
+    </td>
     <td><%= bug.created_at.to_formatted_s(:short) %></td>  
     <td><%= creator_name(bug.reported_by) %></td>   
     <td><%= link_to 'View', bug %></td>

@@ -2,7 +2,7 @@
 	<div class="span6 offset3">
 
 		<%= form_for(@bug) do |f| %>
-			<%= render 'shared/error_messages', :object => f.object %>
+			<%= render 'shared/error_messages', {:object => f.object, :multipart => true} %>
 		
 		    <%= f.label :title %><br />
 		    <%= f.text_field :title %>
@@ -14,16 +14,34 @@
 		    <%= f.text_field :status %>
 		
 		    <%= f.label :priority %><br />
-		    <%= f.text_field :priority %>
+		    <%= f.select :priority, [['Urgent',0],['High',1],['Medium',2],['Low',3]] %>
 		
 		    <%= f.label :closed_by %><br />
 		    <%= f.text_field :closed_by %>
 		
 		    <%= f.label :comment %><br />
 		    <%= f.text_area :comment %>
-		
-			<%= f.submit "Create bug report", class: "btn btn-large btn-primary" %>
+		    
+			<%= f.file_field :screenshot %>
+			<%= f.submit "Submit bug report", class: "btn btn-large btn-primary" %>
 
 		<% end %>
 	</div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -295,7 +295,9 @@ textarea {
 }
 
 .screenshot {
-  float: right
+  float: right;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .urgent-red {
@@ -304,5 +306,8 @@ textarea {
 
 /* bug show ----------------------*/
 .bug-show {
+  p {
+    width: 50%;
+  }
   margin-left: 20px;
 }

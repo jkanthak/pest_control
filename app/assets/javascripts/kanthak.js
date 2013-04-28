@@ -1,7 +1,11 @@
 $(document).ready(function(){
-	/*
-	$('#show-all-bugs').click(function(evt) {
-		$('#q_title_cont, #q_status_cont, #q_description_cont').val("");
+	$('a[data-method="delete"]').bind('ajax:success', function(){
+		var element = this;
+		$(element).parent().parent().fadeOut(600, function() {
+			element.remove;
+			//alert("Row deleted");
+		});
+
 	});
-	*/
+
 });

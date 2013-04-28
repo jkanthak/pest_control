@@ -1,9 +1,11 @@
 
 <div class="bug-show">
 	
+	<% if !@bug.screenshot.blank? %>
 	<div class="screenshot">
 		<%= image_tag @bug.screenshot.url %>		
 	</div>
+	<% end %>
 
 		
 	<p>

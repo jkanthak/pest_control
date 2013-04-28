@@ -40,7 +40,7 @@
   </tr>
 
 <% @bugs.each do |bug| %>
-  <tr>
+  <tr class="fade-bug-row">
     <td><%= truncate(bug.title, length: 30) %></td>
     <td><%= bug.status %></td>
     <td <% if bug.priority == 0 %> class="urgent-red" <% end %> >
@@ -50,8 +50,14 @@
     <td><%= creator_name(bug.reported_by) %></td>   
     <td><%= link_to 'View', bug %></td>
     <td><%= link_to 'Edit', edit_bug_path(bug) %></td>
-    <td><%= link_to 'Delete', bug, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Delete', bug, method: :delete,
+    							   remote: true, 
+    							   data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
+
+<%= will_paginate %>
+
+
 

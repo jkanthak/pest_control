@@ -2,10 +2,10 @@ class BugsController < ApplicationController
 
   def index
     if params[:commit] == "Show all"
-       params[:q][:title_cont] = params[:q][:status_cont] = params[:q][:description_cont] = ""
+       params[:q].each { |key, value| params[:q][key] = "" }
     end
     @search = Bug.search(params[:q])
-    @bugs = @search.result
+    @bugs = @search.result.paginate(page: params[:page], :per_page => 12)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -63,6 +63,33 @@ class BugsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to bugs_url }
       format.json { head :no_content }
+      format.js { redirect_to root_path }
     end
   end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

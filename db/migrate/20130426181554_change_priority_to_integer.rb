@@ -1,6 +1,6 @@
 class ChangePriorityToInteger < ActiveRecord::Migration
   def up
-     execute "ALTER TABLE 'bugs' ALTER COLUMN 'priority' TYPE int"
+     change_column :bugs, :priority, :int
   end
 
   def down

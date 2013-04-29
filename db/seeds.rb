@@ -96,7 +96,7 @@ Bug.create( title: 'Restore demographic widget',
 Bug.create( title: 'Report widget throws exception', 
             description: 'If you have more than one Census layer selected in the TOC and then try to open the Reports widget, you get this error (see screenshot) and the application hangs.',
             status: 'Open',
-            priority: 1,
+            priority: 0,
             reported_by: User.find_by_name('John Kanthak').id,
             comment: 'I couldn\'t reproduce this. Which module were you in? -Robert')
 Bug.create( title: 'AS3 Error in eSearch widget', 

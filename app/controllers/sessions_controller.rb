@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
    def new      
       flash[:welcome] = "Welcome to Pest Control! Visit the 'About' page 
                         for an intro to the app. 
-                        Guests may log in using: 'guest@guest.com' and 'password'"
+                         Guests may log in using: 'guest@guest.com' and 'password'"
    end
    
    def create

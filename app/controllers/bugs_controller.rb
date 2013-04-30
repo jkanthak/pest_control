@@ -1,16 +1,21 @@
 class BugsController < ApplicationController
 
   def index
-    if params[:commit] == "Show all"
-       params[:q].each { |key, value| params[:q][key] = "" }
-    end
-    @search = Bug.search(params[:q])
-    @bugs = @search.result.paginate(page: params[:page], :per_page => 12)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @bugs }
-    end
+     if signed_in? == false
+        redirect_to signin_path
+     else
+       if params[:commit] == "Show all"
+          params[:q].each { |key, value| params[:q][key] = "" }
+       end
+       @search = Bug.search(params[:q])
+       @bugs = @search.result.paginate(page: params[:page], :per_page => 12)
+   
+       respond_to do |format|
+         format.html # index.html.erb
+         format.json { render json: @bugs }
+       end        
+     end
+     
   end
 
   def show

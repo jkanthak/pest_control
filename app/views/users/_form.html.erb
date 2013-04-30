@@ -1,0 +1,26 @@
+<div class="row bug_form">
+	<div class="span4 offset4">
+		<%= form_for(@user) do |f| %>
+			<%= render 'shared/error_messages', :object => f.object %>
+			
+			<%= f.label :name %><br />
+			<%= f.text_field :name %>
+			
+			<%= f.label :email %><br />
+			<%= f.text_field :email %>
+	
+	    	<%= f.label :admin %><br />
+ 			<%= f.select :admin, [['Yes', true],['No',false]] %>			
+			
+			<%= f.label :password %><br />
+			<%= f.password_field :password %>
+			
+			<%= f.label :password_confirmation, "Confirmation" %><br />
+			<%= f.password_field :password_confirmation %>
+			
+			<%= f.submit "Submit user", class: "btn btn-large btn-primary" %>
+		<% end %>
+	</div>
+</div>
+
+

@@ -4,7 +4,7 @@ class CreateBugs < ActiveRecord::Migration
       t.string :title
       t.text :description
       t.string :status
-      t.string :priority
+      t.integer :priority
       t.string :closed_by
       t.text :comment
 

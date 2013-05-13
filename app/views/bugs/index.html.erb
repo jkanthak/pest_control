@@ -41,7 +41,7 @@
 
 <% @bugs.each do |bug| %>
   <tr class="fade-bug-row">
-    <td><%= truncate(bug.title, length: 30) %></td>
+    <td><%= truncate(bug.title, length: 30, separator: ' ') %></td>
     <td><%= bug.status %></td>
     <td <% if bug.priority == 0 %> class="urgent-red" <% end %> >
     	<%= priority_to_str(bug.priority) %>
